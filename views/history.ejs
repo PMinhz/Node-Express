@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+    <title>Lịch sử giao dịch</title>
+</head>
+
+<body>
+    <%- include('header') -%>
+        <div class="container main">
+            <h3 class="text-center fw-bold my-3">Lịch sử giao dịch</h3>
+            <table class="table table-hover mt-5 text-center">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Loại giao dịch</th>
+                        <th scope="col">Số tiền</th>
+                        <th scope="col">Thời gian thực hiện</th>
+                        <th scope="col">Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-bs-toggle="modal" data-bs-target="#historyDetail">
+                        <th scope="row"><i class="fas fa-arrow-alt-square-down" style="font-size:36px;color:green;"></th>
+                        <td>Nạp tiền</td>
+                        <td>2,000,000đ</td>
+                        <td>1/3/2022</td>
+                        <td class="fw-bold text-success">Duyệt</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><i class="fas fa-arrow-alt-square-up" style="font-size:36px;color:red;"></th>
+                        <td>Rút tiền</td>
+                        <td>500,000đ</td>
+                        <td>12/2/2022</td>
+                        <td class="fw-bold">Chờ duyệt</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><i class="fas fa-exchange-alt" style="font-size:36px;"></th>
+                        <td>Chuyển tiền</td>
+                        <td>-2,000,000đ</td>
+                        <td>1/3/2022</td>
+                        <td class="fw-bold text-danger">Bị hủy</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><i class="fas fa-usd-square" style="font-size:36px;color:royalblue;"></th>
+                        <td>Mua thẻ ĐT</td>
+                        <td>2,000,000đ</td>
+                        <td>1/3/2022</td>
+                        <td class="fw-bold text-success">Duyệt</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal history detail -->
+        <div class="modal fade" id="historyDetail">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-info">
+                        <h5 class="modal-title" id="historyDetail">Chi tiết giao dịch</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div>Nạp tiền vào ví</div>
+                        <div>Mã giao dịch: 0000011</div>
+                        <div>Trạng thái: Duyệt</div>
+                        <div>Thời gian thực hiện: 1/3/2022</div>
+                        <div>Số tiền: 2,000,000đ</div>
+                        <div>Phí giao dịch: Miễn phí</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <%- include('footer') -%>
+</body>
+
+</html>

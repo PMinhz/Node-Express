@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Thông tin cá nhân</title>
+</head>
+
+<body>
+    <%- include('header') -%>
+        <div class="container main">
+            <div class="row justify-content-between">
+                <div class="col-4 mt-5 mb-3">
+                    <h2 class="bg-secondary rounded-top p-2 ps-4 text-white mb-0 fw-bold text-center">Thông tin cá nhân
+                    </h2>
+                    <div class="card w-100 border border-top-0 rounded-bottom bg-light">
+                        <!-- <img src="/images/avatar.png" class="card-img-top" alt="..."> -->
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Nguyễn Văn A</h5>
+                            <p class="card-text">Số dư tài khoản: <span class="fw-bold">1000000đ</span></p>
+                            <p class="d-flex card-text">Trạng thái tài khoản:
+                                <span class="fw-bold text-success ps-2" id="status"> Đã xác minh</span>
+                                <!-- id cho trạng thái tài khoản -->
+                            </p>
+
+                            <p class="card-text">Email: vana@gmail.com</p>
+                            <p class="card-text">Số điện thoại: 0848390242</p>
+                            <p class="card-text">Ngày sinh: 25/05/2001</p>
+                            <p class="card-text">Địa chỉ: Hà Nội</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 mt-5 mb-3">
+                    <h3 class="mb-4">Dịch vụ của bạn</h3>
+                    <div class="my-3">
+                        <button class="btn btn-lg btn-secondary me-5" data-bs-toggle="modal"
+                            data-bs-target="#rechargeModal"><i class="fas fa-arrow-alt-square-down"></i> Nạp
+                            tiền</button>
+                        <button class="btn btn-lg btn-secondary" data-bs-toggle="modal"
+                            data-bs-target="#withdrawModal"><i class="fas fa-arrow-alt-square-up"></i> Rút
+                            tiền</button>
+                    </div>
+                    <div class="my-3">
+                        <button class="btn btn-lg btn-secondary me-3" data-bs-toggle="modal"
+                            data-bs-target="#transferModal"><i class="fas fa-exchange-alt"></i> Chuyển
+                            tiền</button>
+                        <button class="btn btn-lg btn-secondary" data-bs-toggle="modal"
+                            data-bs-target="#buyCardModal"><i class="fas fa-usd-square"></i> Mua thẻ
+                            ĐT</button>
+                    </div>
+                    <button class="btn btn-lg btn-outline-primary px-5 mt-5"><i class="fas fa-history"></i> Lịch sử giao
+                        dịch</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Nạp tiền -->
+        <div class="modal fade" id="rechargeModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-info">
+                        <h5 class="modal-title" id="rechargeModalLabel">Nạp tiền</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="soThe" class="form-label">Số thẻ:</label>
+                                <input type="number" class="form-control" id="soThe" placeholder="x x x x x x"
+                                    name="soThe">
+                            </div>
+                            <div class="mb-3">
+                                <label for="ngayHetHan" class="form-label">Ngày hết hạn:</label>
+                                <input type="date" class="form-control" id="ngayHetHan" name="ngayHetHan">
+                            </div>
+                            <div class="mb-3">
+                                <label for="maCVV" class="form-label">Mã CVV:</label>
+                                <input type="number" class="form-control" id="maCVV" placeholder="x x x" name="maCVV">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                <button type="button" class="btn btn-info">Nạp tiền</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Rút tiền -->
+        <div class="modal fade" id="withdrawModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-info">
+                        <h5 class="modal-title" id="withdrawModalLabel">Rút tiền</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="soThe" class="form-label">Số thẻ:</label>
+                                    <input type="number" class="form-control" id="soThe" placeholder="x x x x x x"
+                                        name="soThe">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="maCVV" class="form-label">Mã CVV:</label>
+                                    <input type="number" class="form-control" id="maCVV" placeholder="x x x"
+                                        name="maCVV">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="ngayHetHan" class="form-label">Ngày hết hạn:</label>
+                                <input type="date" class="form-control" id="ngayHetHan" name="ngayHetHan">
+                            </div>
+                            <div class="mb-3">
+                                <label for="soTienRut" class="form-label">Số tiền rút:</label>
+                                <input type="number" class="form-control" id="soTienRut"
+                                    placeholder="Nhập số tiền cần rút" name="soTienRut">
+                            </div>
+                            <div class="mb-3">
+                                <label for="note" class="form-label">Ghi chú:</label>
+                                <textarea name="note" id="note" class="form-control">Nhập ghi chú</textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                <button type="button" class="btn btn-info">Rút tiền</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Chuyển tiền -->
+        <div class="modal fade" id="transferModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-info">
+                        <h5 class="modal-title" id="transferModalLabel">Chuyển tiền</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Số điện thoại:</label>
+                                <input type="number" class="form-control" id="phone" placeholder="Nhập SĐT người nhận"
+                                    name="phone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="soTienRut" class="form-label">Số tiền:</label>
+                                <input type="number" class="form-control" id="soTienRut"
+                                    placeholder="Nhập số tiền cần chuyển" name="soTienRut">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Người chịu phí:</label>
+                                <input type="radio" class="form-check-input ms-3" id="sender" value="sender"
+                                    name="nguoiChiuPhi" checked>
+                                <label for="sender">Người gửi</label>
+
+                                <input type="radio" class="form-check-input ms-3" id="receiver" value="receiver"
+                                    name="nguoiChiuPhi">
+                                <label for="receiver">Người nhận</label>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                <button type="button" class="btn btn-info">Tiếp tục</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Mua thẻ điện thoại -->
+        <div class="modal fade" id="buyCardModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-info">
+                        <h5 class="modal-title" id="buyCardModalLabel">Mua thẻ điện thoại</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Nhà mạng:</label>
+                                <input type="radio" class="form-check-input ms-3" id="viettel" value="viettel"
+                                    name="nhaMang" checked>
+                                <label for="viettel">Viettel</label>
+
+                                <input type="radio" class="form-check-input ms-3" id="mobifone" value="mobifone"
+                                    name="nhaMang">
+                                <label for="mobifone">Mobifone</label>
+
+                                <input type="radio" class="form-check-input ms-3" id="vinaphone" value="vinaphone"
+                                    name="nhaMang">
+                                <label for="vinaphone">Vinaphone</label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Mệnh giá:</label>
+                                <input type="radio" class="form-check-input ms-3" id="10000" value="10000"
+                                    name="menhGia" checked>
+                                <label for="10000">10.000đ</label>
+
+                                <input type="radio" class="form-check-input ms-3" id="20000" value="20000"
+                                    name="menhGia">
+                                <label for="20000">20.000đ</label>
+
+                                <input type="radio" class="form-check-input ms-3" id="50000" value="50000"
+                                    name="menhGia">
+                                <label for="50000">50.000đ</label>
+
+                                <input type="radio" class="form-check-input ms-3" id="100000" value="100000"
+                                    name="menhGia">
+                                <label for="100000">100.000đ</label>
+                            </div>
+                            <div class="mb-3">
+                                <label for="quantity" class="form-label">Số lượng:</label>
+                                <input type="number" class="form-control" id="quantity" placeholder="Nhập số lượng thẻ"
+                                    name="quantity" value="1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="fee" class="form-label">Phí giao dịch:</label>
+                                <input type="number" class="form-control" id="fee" name="fee" value="0" disabled>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                <button type="button" class="btn btn-info">Mua thẻ</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('footer') -%>
+</body>
+
+</html>

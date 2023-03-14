@@ -1,0 +1,18 @@
+const { check } = require('express-validator')
+module.exports = [
+    check('fullname')
+    .notEmpty()
+    .withMessage('Tên không được để trống')
+    .isLength({ min: 3 }).withMessage('Tên quá ngắn'),
+
+    check('email')
+    .isEmail().withMessage('Phải là định dạng email'),
+    check('phone')
+    .matches(/^[0-9.,]+$/).withMessage('Số điện thoại không có kí tự')
+    .isLength({ min: 10 }).withMessage('Số điện thoại phải có 10 số'),
+    check('birthday')
+    .isDate().withMessage('Vui lòng nhập ngày sinh'),
+    check('address')
+    .notEmpty().withMessage('Vui lòng nhập địa chỉ')
+
+]
